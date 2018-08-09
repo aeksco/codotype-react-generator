@@ -1,2 +1,3 @@
 # codotype-react-generator
-Codotype generator for React, React Router, &amp; Bootstrap 4
+
+Codotype generator for React, React Router, & Bootstrap 4
