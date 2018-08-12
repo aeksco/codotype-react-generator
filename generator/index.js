@@ -1,6 +1,18 @@
 const { Generator, Helpers } = require('codotype-generator')
 const Base = require('./base')
 
+const ReactJsAppBase = require('./reactjs_app_base')
+const ReactJsAppCore = require('./reactjs_app_core')
+const ReactJsAuth = require('./reactjs_auth')
+const ReactJsRoutes = require('./reactjs_routes')
+const ReactJsListComponent = require('./reactjs_list_component')
+const ReactJsNewComponent = require('./reactjs_new_component')
+const ReactJsEditorComponent = require('./reactjs_editor_component')
+const ReactJsShowComponent = require('./reactjs_show_component')
+const ReactJsEditComponent = require('./reactjs_edit_component')
+const ReactJsWidgetComponent = require('./reactjs_widget_component')
+
+
 // // // //
 
 module.exports = class extends Generator {
@@ -41,7 +53,7 @@ module.exports = class extends Generator {
     //
     // // // //
 
-    // VueJS
+    // ReactJS
     build.dest.client.root = build.dest.root + 'react_client/'
     build.dest.client.src = build.dest.client.root + 'src/'
 
@@ -61,8 +73,18 @@ module.exports = class extends Generator {
     // Creates project build directories
     await this.ensureDir(this.options.build.dest.root)
 
-    // Generates Vue + Onsen app
+    // Generates app
     await this.composeWith(Base)
+    await this.composeWith(ReactJsAppBase)
+    await this.composeWith(ReactJsAppCore)
+    await this.composeWith(ReactJsAuth)
+    await this.composeWith(ReactJsRoutes)
+    await this.composeWith(ReactJsListComponent)
+    await this.composeWith(ReactJsNewComponent)
+    await this.composeWith(ReactJsEditorComponent)
+    await this.composeWith(ReactJsShowComponent)
+    await this.composeWith(ReactJsEditComponent)
+    await this.composeWith(ReactJsWidgetComponent)
 
     // TODO - implement a more robust logging solution
     console.log('Finished Codotype generate')
