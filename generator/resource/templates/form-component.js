@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class <%- schema.class_name %>Editor extends Component {
+class <%- schema.class_name %>Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,4 +65,4 @@ class <%- schema.class_name %>Editor extends Component {
   }
 }
 
-export default <%- schema.class_name %>Editor;
+export default <%- schema.class_name %>Form;

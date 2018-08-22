@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import <%- schema.class_name %>Editor from './<%- schema.class_name %>Editor';
+import <%- schema.class_name %>Form from './<%- schema.class_name %>Form';
 import axios from 'axios';
 
 class <%- schema.class_name %>New extends Component {
@@ -24,7 +24,7 @@ class <%- schema.class_name %>New extends Component {
     return (
       <div>
         <h2>New component</h2>
-        <<%- schema.class_name %>Editor id={999} content={this.state.content} />
+        <<%- schema.class_name %>Form id={999} content={this.state.content} />
       </div>
     )
   }
