@@ -1,0 +1,16 @@
+{
+    "id": "codotype-react-generator",
+    "label": "React.js",
+    "icon": "devicon-react-plain",
+    "description": "Codotype generator with React, Axios, and Bootstrap",
+    "tech_tags": ["React", "Axios", "Bootstrap"],
+    "type_tags": ["Frontend"],
+    "self_configuring": false,
+    "project_path": "react_app",
+    "addons": [],
+    "global_options": [],
+    "model_options": [],
+    "github_url": "codotype/codotype-react-generator",
+    "version": "0.1.0",
+    "official": true
+  }
