@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class <%- schema.class_name %>Preview extends Component {
+class <%- schema.class_name %>ListItem extends Component {
   constructor(props) {
     super(props);
     this.deleteItem = this.deleteItem.bind(this);
@@ -61,4 +61,4 @@ class <%- schema.class_name %>Preview extends Component {
   }
 }
 
-export default <%- schema.class_name %>Preview;
+export default <%- schema.class_name %>ListItem;

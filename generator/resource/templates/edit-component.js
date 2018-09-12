@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import <%- schema.class_name %>Editor from './<%- schema.class_name %>Editor';
+import <%- schema.class_name %>Form from './<%- schema.class_name %>Form';
 
 import Loader from '../components/Loader';
 
@@ -50,7 +50,7 @@ class <%- schema.class_name %>Edit extends Component {
         <hr />
 
         <Loader isLoaded={this.state.isLoaded}>
-          <<%- schema.class_name %>Editor content={this.state.content} onContentChange={this.handleContentChange} />
+          <<%- schema.class_name %>Form content={this.state.content} onContentChange={this.handleContentChange} />
         </Loader>
 
         <div className="row">

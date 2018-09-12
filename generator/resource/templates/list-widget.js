@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import <%- schema.class_name %>Preview from './<%- schema.class_name %>Preview';
+import <%- schema.class_name %>ListItem from './<%- schema.class_name %>ListItem';
 
 class <%- schema.class_name %>ListWidget extends Component {
   render() {
@@ -38,7 +38,7 @@ class <%- schema.class_name %>ListWidget extends Component {
               </tr>
             ) : (
               this.props.collection.map((model) => {
-                return <<%- schema.class_name %>Preview model={model} onDeleteItem={this.deleteItem} key={model._id} />
+                return <<%- schema.class_name %>ListItem model={model} onDeleteItem={this.deleteItem} key={model._id} />
               })
             )
           }
