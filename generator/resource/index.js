@@ -1,10 +1,10 @@
-const { Generator } = require('codotype-generator')
+const Generator = require('@codotype/generator')
 
 // // // //
 
 module.exports = class ReactJsResource extends Generator {
-  async write ({ app }) {
-    app.schemas.forEach(async (schema) => {
+  async write ({ blueprint }) {
+    blueprint.schemas.forEach(async (schema) => {
       const dest = 'src/' + schema.identifier + '/';
       await this.ensureDir(dest);
 
