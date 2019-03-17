@@ -1,8 +1,4 @@
-const { Generator } = require('codotype-generator')
-
-// // // //
-
-module.exports = class ReactJsResource extends Generator {
+module.exports = {
   async write ({ app }) {
     app.schemas.forEach(async (schema) => {
       const dest = 'src/' + schema.identifier + '/';

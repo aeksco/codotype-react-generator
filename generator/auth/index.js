@@ -1,6 +1,4 @@
-const { Generator } = require('codotype-generator');
-
-module.exports = class ReactJsAuth extends Generator {
+module.exports = {
   async write() {
     await this.ensureDir('src/auth');
 

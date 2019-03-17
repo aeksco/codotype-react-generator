@@ -1,6 +1,4 @@
-const { Generator } = require('codotype-generator');
-
-module.exports = class ReactJsAppCore extends Generator {
+module.exports = {
   async write({ app }) {
     await this.copyTemplate(
       this.templatePath('app.js'),
