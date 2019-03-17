@@ -1,4 +1,5 @@
 module.exports = {
+  name: 'ReactGenerator',
   async write () {
     await this.composeWith('./base')
     await this.composeWith('./auth')
