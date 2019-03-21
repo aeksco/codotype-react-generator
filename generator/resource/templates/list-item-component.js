@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from "@blueprintjs/core";
 
 class <%- schema.class_name %>ListItem extends Component {
   constructor(props) {
@@ -44,17 +45,15 @@ class <%- schema.class_name %>ListItem extends Component {
         <%_ } _%>
       <%_ } _%>
         <td className="text-right">
-          <a className="btn btn-sm btn-outline-primary" href={'/<%= schema.identifier_plural %>/' + m._id}>
-            <i className="fa fa-fw fa-eye"></i>
-          </a>
+          <Link className="bp3-button bp3-small bp3-intent-success" to={'/<%= schema.identifier_plural %>/' + m._id}>
+            Show
+          </Link>
 
-          <a className="btn btn-sm btn-outline-warning" href={'/<%= schema.identifier_plural %>/' + m._id + '/edit'}>
-            <i className="fa fa-fw fa-pencil"></i>
-          </a>
+          <Link className="bp3-button bp3-small bp3-intent-warning" to={'/<%= schema.identifier_plural %>/' + m._id + '/edit'}>
+            Edit
+          </Link>
 
-          <button className="btn btn-sm btn-outline-danger" onClick={this.deleteItem}>
-            <i className="fa fa-fw fa-trash"></i>
-          </button>
+          <Button onClick={this.deleteItem} text="Delete" intent="danger" small />
         </td>
       </tr>
     )

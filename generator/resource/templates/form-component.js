@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormGroup, InputGroup } from "@blueprintjs/core";
 
 class <%- schema.class_name %>Form extends Component {
   constructor(props) {
@@ -27,32 +28,58 @@ class <%- schema.class_name %>Form extends Component {
   render() {
     return (
       <div className='row'>
-        <%_ for (let attr of schema.attributes) { _%>
-        <div className="col-lg-6">
-          <div className="form-group">
-            <label className='mb-0'>
-              <%= attr.label %>
-              <% if (attr.required) { %><span className='text-danger'>*</span><% } %>
-            </label>
-            <small className="form-text text-muted mb-2"><%= attr.help %></small>
-          <%_ if (attr.datatype === DATATYPE_BOOLEAN) { _%>
-            <input type="checkbox" className="form-control" checked={Boolean(this.getModel('<%- attr.identifier %>'))} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.checked)} />
-          <%_ } else if (attr.datatype === DATATYPE_STRING) { _%>
-            <input type="text" className="form-control" placeholder="<%= attr.label %>" value={String(this.getModel('<%- attr.identifier %>'))} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.value)} />
-          <%_ } else if (attr.datatype === DATATYPE_INTEGER) { _%>
-            <input type="number" className="form-control" placeholder="<%= attr.label %>" value={String(this.getModel('<%- attr.identifier %>'))} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.value)} />
-          <%_ } else if (attr.datatype === DATATYPE_DATE) { _%>
-            <input type="date" className="form-control" placeholder="<%= attr.label %>" value={String(this.getModel('<%- attr.identifier %>')).split('Z')[0]} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.value + 'Z')} />
-          <%_ } else if (attr.datatype === DATATYPE_TIME) { _%>
-            <input type="time" className="form-control" placeholder="<%= attr.label %>" value={String(this.getModel('<%- attr.identifier %>')).split('Z')[0]} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.value + 'Z')} />
-          <%_ } else if (attr.datatype === DATATYPE_DATETIME) { _%>
-            <input type="datetime-local" className="form-control" placeholder="<%= attr.label %>" value={String(this.getModel('<%- attr.identifier %>')).split('Z')[0]} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.value + 'Z')} />
-          <%_ } else if (attr.datatype === DATATYPE_JSON) { _%>
-            <textarea className="form-control" placeholder="<%= attr.label %>" onChange={(e) => this.setModel('<%- attr.identifier %>', JSON.parse(e.target.value))}>{ JSON.stringify(this.getModel('<%- attr.identifier %>'), null, 2) }</textarea>
+
+        <%_ schema.attributes.forEach((attr, index) => { _%>
+        <FormGroup
+          helperText="<%= attr.description %>"
+          label="<%= attr.label %>"
+          labelFor="text-input"
+          <%_ if (attr.required) { _%>
+          labelInfo="(required)"
           <%_ } _%>
-          </div>
-        </div>
-      <%_ } _%>
+        >
+          <%_ if (attr.datatype === DATATYPE_STRING) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_TEXT) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_STRING_ARRAY) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_STRING_SELECT) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_INTEGER) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_FLOAT) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_DOUBLE) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_BOOLEAN) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_JSON) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_DATE) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_TIME) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } else if (attr.datatype === DATATYPE_DATETIME) { _%>
+          <InputGroup id="<%= attr.identifier %>_input" placeholder="<%= attr.label %>" />
+          <%_ } _%>
+        </FormGroup>
+        <%_ }) _%>
+        <%_ schema.relations.forEach((rel, index) => { _%>
+        <FormGroup
+          label="<%= rel.alias.label %>"
+          labelFor="text-input"
+        >
+          <%_ if (rel.type === RELATION_TYPE_BELONGS_TO) { _%>
+          <InputGroup id="<%= rel.alias.identifier %>_input" placeholder="<%= rel.alias.label %>" />
+          <%_ } else if (rel.type === RELATION_TYPE_HAS_ONE) { _%>
+          <InputGroup id="<%= rel.alias.identifier %>_input" placeholder="<%= rel.alias.label %>" />
+          <%_ } else if (rel.type === RELATION_TYPE_HAS_MANY) { _%>
+          <InputGroup id="<%= rel.alias.identifier %>_input" placeholder="<%= rel.alias.label_plural %>" />
+          <%_ } _%>
+        </FormGroup>
+        <%_ }) _%>
+
       </div>
     )
   }

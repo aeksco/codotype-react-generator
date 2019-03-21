@@ -20,10 +20,10 @@ class <%- schema.class_name %>Show extends Component {
   updateModel() {
     this.setState({ loading: true })
     axios.get('/api/<%- schema.identifier_plural %>/' + this.props.match.params.id)
-    .then((response) => {
+    .then(({ data }) => {
       this.setState({
         loading: false,
-        model: response.data
+        model: data
       })
     })
   }

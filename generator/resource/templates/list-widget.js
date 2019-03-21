@@ -5,7 +5,7 @@ import <%- schema.class_name %>ListItem from './<%- schema.class_name %>ListItem
 class <%- schema.class_name %>ListWidget extends Component {
   render() {
     return (
-      <table className="table table-striped table-hover">
+      <table className="bp3-html-table">
         <thead>
           <tr>
             <%_ for (let attr of schema.attributes) { _%>
