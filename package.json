@@ -1,22 +1,15 @@
 {
-  "name": "codotype-react-generator",
+  "name": "@codotype/codotype-react-generator",
   "version": "0.1.0",
-  "description": "A starter kit for new Codotype generators",
-  "main": "index.js",
-  "scripts": {
-    "test": "node index.js"
-  },
+  "description": "Instantly generate web apps React.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/codotype/codotype-react-generator.git"
   },
-  "author": "",
+  "author": "Alexander Schwartzberg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/codotype/codotype-react-generator/issues"
   },
-  "homepage": "https://github.com/codotype/codotype-react-generator#readme",
-  "dependencies": {
-    "codotype-generator": "git+https://github.com/codotype/codotype-generator.git"
-  }
+  "homepage": "https://github.com/codotype/codotype-react-generator#readme"
 }
