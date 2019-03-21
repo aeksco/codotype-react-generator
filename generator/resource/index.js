@@ -1,6 +1,6 @@
 module.exports = {
   name: 'ReactComponents',
-  async forEachSchema ({ app }) {
+  async forEachSchema ({ schema }) {
     const dest = 'src/' + schema.identifier + '/';
     await this.ensureDir(dest);
 

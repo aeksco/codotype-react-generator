@@ -8,8 +8,8 @@ class Login extends Component {
     super(props)
     this.state = {
       isLoaded: true,
-      email: '',
-      password: ''
+      email: 'john@doe.com',
+      password: 'abc123'
     }
     this.handleLogin = this.handleLogin.bind(this)
     this.updateEmailValue = this.updateEmailValue.bind(this)
@@ -23,9 +23,11 @@ class Login extends Component {
     axios.post('/api/auth/login', {
       email: this.state.email,
       password: this.state.password
-    }).then((response) => {
+    }).then(({ data }) => {
+      localStorage.token = data.token
       this.setState({
-        isLoaded: true
+        isLoaded: true,
+        token: data.token,
       })
     })
   }

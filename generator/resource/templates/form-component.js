@@ -39,7 +39,7 @@ class <%- schema.class_name %>Form extends Component {
             <input type="checkbox" className="form-control" checked={Boolean(this.getModel('<%- attr.identifier %>'))} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.checked)} />
           <%_ } else if (attr.datatype === DATATYPE_STRING) { _%>
             <input type="text" className="form-control" placeholder="<%= attr.label %>" value={String(this.getModel('<%- attr.identifier %>'))} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.value)} />
-          <%_ } else if (attr.datatype === DATATYPE_NUMBER) { _%>
+          <%_ } else if (attr.datatype === DATATYPE_INTEGER) { _%>
             <input type="number" className="form-control" placeholder="<%= attr.label %>" value={String(this.getModel('<%- attr.identifier %>'))} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.value)} />
           <%_ } else if (attr.datatype === DATATYPE_DATE) { _%>
             <input type="date" className="form-control" placeholder="<%= attr.label %>" value={String(this.getModel('<%- attr.identifier %>')).split('Z')[0]} onChange={(e) => this.setModel('<%- attr.identifier %>', e.target.value + 'Z')} />

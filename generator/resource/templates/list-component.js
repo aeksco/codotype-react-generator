@@ -21,13 +21,17 @@ class <%- schema.class_name %>List extends Component {
 
   updateCollection() {
     this.setState({ loaded: false })
-    axios.get('/api/<%- schema.identifier_plural %>')
-      .then((response) => {
-        this.setState({
-          collection: response.data,
-          loaded: true
-        })
+    axios.get('/api/<%- schema.identifier_plural %>', {
+      headers: {
+        authorization: localStorage.token ? `JWT ${localStorage.token}` : ''
+      }
+    })
+    .then(({ data }) => {
+      this.setState({
+        collection: data.items,
+        loaded: true
       })
+    })
   }
 
   deleteItem(id) {
